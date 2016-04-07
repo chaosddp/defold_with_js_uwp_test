@@ -1,0 +1,8 @@
+﻿to use js uwp project with defold html export, we need to modify the manifest file to avoid CSP error.
+
+1. change the startup page: StartPage="ms-appx-web:///index.html". doing this will cause our app run in a "web context"
+2. add following node to allow our script access windows runtime:
+
+      <uap:ApplicationContentUriRules>
+        <uap:Rule Type="include" Match="ms-appx-web:///" WindowsRuntimeAccess="all"/>
+      </uap:ApplicationContentUriRules>
